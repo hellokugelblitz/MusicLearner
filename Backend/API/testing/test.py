@@ -5,7 +5,7 @@ import openai
 import speech_recognition as sr
 from pprint import pprint
 
-openai.api_key = "YOUR_OPENAI_API_KEY"
+openai.api_key = "sk-oRmUhMSgvQRRwn5CeRpTT3BlbkFJ60a5AirkKNJo97VSrKp"
 
 def analyze_lyrics(audio_file):
     
@@ -116,9 +116,165 @@ def analyze_lyrics(audio_file):
     
     return results
 
-lyrics_analysis = analyze_lyrics("C:\\Users\\Sahil Dayal\\Desktop\\BRICKHACK24\\MusicLearner\\Backend\\API\\testing\\test.mp3")    
+lyrics_analysis = analyze_lyrics("test3.mp3")    
 # "C:\\Users\\Sahil Dayal\\Desktop\\BRICKHACK24\\MusicLearner\\Backend\\API\\testing\\test.mp3"
 pprint(lyrics_analysis)
+
+
+"""
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/__init__.py", line 241, in __enter__
+    self.audio_reader = wave.open(self.filename_or_fileobject, "rb")
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/wave.py", line 630, in open
+    return Wave_read(f)
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/wave.py", line 284, in __init__
+    self.initfp(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/wave.py", line 251, in initfp
+    raise Error('file does not start with RIFF id')
+wave.Error: file does not start with RIFF id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/__init__.py", line 246, in __enter__
+    self.audio_reader = aifc.open(self.filename_or_fileobject, "rb")
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 954, in open
+    return Aifc_read(f)
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 358, in __init__
+    self.initfp(file_object)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 322, in initfp
+    raise Error('file does not start with FORM id')
+aifc.Error: file does not start with FORM id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/__init__.py", line 272, in __enter__
+    self.audio_reader = aifc.open(aiff_file, "rb")
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 954, in open
+    return Aifc_read(f)
+           ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 364, in __init__
+    self.initfp(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/aifc.py", line 320, in initfp
+    chunk = Chunk(file)
+            ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/chunk.py", line 67, in __init__
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 119, in <module>
+    lyrics_analysis = analyze_lyrics("test.mp3")    
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 14, in analyze_lyrics
+    with sr.AudioFile(audio_file) as source:
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/__init__.py", line 274, in __enter__
+    raise ValueError("Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format")
+ValueError: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format
+bibhashthapa@bibhashs-mbp testing % python3 test.py
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1076, in _send_output
+    self.send(chunk)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 998, in send
+    self.sock.sendall(data)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 205, in obtain_transcription
+    response = urlopen(request, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 32] Broken pipe>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 119, in <module>
+    lyrics_analysis = analyze_lyrics("test3.wav")    
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 16, in analyze_lyrics
+    lyrics = r.recognize_google(audio)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 244, in recognize_legacy
+    response_text = obtain_transcription(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 209, in obtain_transcription
+    raise RequestError(
+speech_recognition.exceptions.RequestError: recognition connection failed: [Errno 32] Broken pipe
+bibhashthapa@bibhashs-mbp testing % python3 test.py
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 205, in obtain_transcription
+    response = urlopen(request, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 525, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 119, in <module>
+    lyrics_analysis = analyze_lyrics("test3.wav")    
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bibhashthapa/Desktop/MusicLearner/Backend/API/testing/test.py", line 16, in analyze_lyrics
+    lyrics = r.recognize_google(audio)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 244, in recognize_legacy
+    response_text = obtain_transcription(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/speech_recognition/recognizers/google.py", line 207, in obtain_transcription
+    raise RequestError("recognition request failed: {}".format(e.reason))
+speech_recognition.exceptions.RequestError: recognition request failed: Bad Request
+"""
 
 # KEY_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]  
 
